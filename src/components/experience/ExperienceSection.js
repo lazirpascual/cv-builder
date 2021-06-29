@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ExperienceCard from "./ExperienceCard";
-import { ExpFormContext } from "../../contexts/ExpFormContext";
+import { ExperienceContext } from "../../contexts/ExperienceContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -9,7 +9,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { Container } from "@material-ui/core";
 
 const ExperienceSection = () => {
-  const { addForm } = useContext(ExpFormContext);
+  const { addForm } = useContext(ExperienceContext);
 
   return (
     <Container>

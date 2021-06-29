@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ExpFormContext } from "../../contexts/ExpFormContext";
+import { ExperienceContext } from "../../contexts/ExperienceContext";
 
 // Material-UI import
 import Card from "@material-ui/core/Card";
@@ -11,12 +11,13 @@ import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 
 const ExperienceList = ({ form, toggleEdit }) => {
-  const { deleteForm } = useContext(ExpFormContext);
+  const { deleteForm } = useContext(ExperienceContext);
 
   return (
     <Card variant="Media">
       <CardContent>
-        <Typography>Company: {form.company}</Typography>
+        <Typography>{form.company}</Typography>
+        <Typography>{form.position}</Typography>
         <Grid container justify="flex-end">
           <IconButton>
             <UpdateIcon onClick={() => toggleEdit(form.id)} />
