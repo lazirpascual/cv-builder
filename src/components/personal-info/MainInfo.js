@@ -18,7 +18,7 @@ const MainInfo = () => {
         required
       ></TextField>
       <TextField
-        label="small bio about yourself"
+        label="Biography"
         variant="outlined"
         color="secondary"
         multiline

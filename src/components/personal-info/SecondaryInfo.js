@@ -8,7 +8,7 @@ const SecondaryInfo = () => {
   return (
     <Grid container direction="column">
       <TextField
-        label="Location"
+        label="Address"
         variant="outlined"
         color="secondary"
         size="small"
@@ -37,7 +37,6 @@ const SecondaryInfo = () => {
         color="secondary"
         size="small"
         margin="dense"
-        required
       ></TextField>
     </Grid>
   );

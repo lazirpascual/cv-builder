@@ -6,14 +6,14 @@ export const ExpFormContext = createContext();
 const ExpFormContextProvider = (props) => {
   const [forms, setForm] = useState([]);
 
-  function addForm() {
+  const addForm = () => {
     setForm([...forms, { id: uuid() }]);
-  }
+  };
 
-  function deleteForm(key) {
+  const deleteForm = (key) => {
     const filteredForm = forms.filter((form) => form.id !== key);
     setForm(filteredForm);
-  }
+  };
 
   return (
     <ExpFormContext.Provider value={{ forms, addForm, deleteForm }}>

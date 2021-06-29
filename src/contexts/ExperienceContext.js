@@ -1,13 +1,17 @@
-import React, { createContext, useReducer } from "react";
-import { experienceReducer } from "../reducers/ExperienceReducer";
+import React, { createContext, useState } from "react";
+import uuid from "uuid/dist/v1";
 
 export const ExperienceContext = createContext();
 
 const ExperienceContextProvider = (props) => {
-  const [experiences, dispatch] = useReducer(experienceReducer, []);
+  const [experiences, setExperiences] = useState([]);
+
+  const addExperience = () => {
+    setExperiences([...experiences, { company: "", id: uuid() }]);
+  };
 
   return (
-    <ExperienceContext.Provider value={{ experiences, dispatch }}>
+    <ExperienceContext.Provider value={{ experiences }}>
       {props.children}
     </ExperienceContext.Provider>
   );

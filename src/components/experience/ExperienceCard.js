@@ -9,9 +9,9 @@ const ExperienceCard = () => {
 
   return (
     <div>
-      {forms.map((form) => {
-        return <ExperienceForm form={form} key={form.id} />;
-      })}
+      {forms.map((form) => (
+        <ExperienceForm form={form} key={form.id} />
+      ))}
     </div>
   );
 };
