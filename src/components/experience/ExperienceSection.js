@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import ExperienceCard from "./ExperienceCard";
+import { ExpFormContext } from "../../contexts/ExpFormContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -7,11 +9,17 @@ import AddIcon from "@material-ui/icons/Add";
 import { Container } from "@material-ui/core";
 
 const ExperienceSection = () => {
+  const { addForm } = useContext(ExpFormContext);
+
   return (
     <Container>
-      <Typography align="left">Experience</Typography>
+      <Typography align="left" variant="h6">
+        Experience
+      </Typography>
+      <ExperienceCard />
       <Button
         type="submit"
+        onClick={() => addForm()}
         color="secondary"
         variant="contained"
         startIcon={<AddIcon />}

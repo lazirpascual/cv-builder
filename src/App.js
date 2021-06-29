@@ -2,6 +2,7 @@ import React from "react";
 import PersonalInfo from "./components/personal-info/PersonalInfo";
 import Header from "./components/Header";
 import ExperienceSection from "./components/experience/ExperienceSection";
+import ExpFormContextProvider from "./contexts/ExpFormContext";
 
 // Material-UI import
 import { Container } from "@material-ui/core";
@@ -11,7 +12,9 @@ const App = () => {
     <Container>
       <Header />
       <PersonalInfo />
-      <ExperienceSection />
+      <ExpFormContextProvider>
+        <ExperienceSection />
+      </ExpFormContextProvider>
     </Container>
   );
 };

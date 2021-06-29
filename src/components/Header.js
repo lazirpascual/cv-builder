@@ -6,7 +6,9 @@ import Typography from "@material-ui/core/Typography";
 const Header = () => {
   return (
     <div>
-      <Typography align="center">Create Your Personal CV</Typography>
+      <Typography variant="h4" align="center">
+        Create Your Personal CV
+      </Typography>
     </div>
   );
 };
