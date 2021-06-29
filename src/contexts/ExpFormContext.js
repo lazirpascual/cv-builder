@@ -7,7 +7,7 @@ const ExpFormContextProvider = (props) => {
   const [forms, setForm] = useState([]);
 
   const addForm = () => {
-    setForm([...forms, { id: uuid() }]);
+    setForm([...forms, { company: "", id: uuid() }]);
   };
 
   const deleteForm = (key) => {
@@ -15,8 +15,18 @@ const ExpFormContextProvider = (props) => {
     setForm(filteredForm);
   };
 
+  const saveForm = (company, key) => {
+    const savedForms = forms;
+    savedForms.forEach((form) => {
+      if (form.id === key) {
+        form.company = company;
+      }
+    });
+    setForm(savedForms);
+  };
+
   return (
-    <ExpFormContext.Provider value={{ forms, addForm, deleteForm }}>
+    <ExpFormContext.Provider value={{ forms, addForm, deleteForm, saveForm }}>
       {props.children}
     </ExpFormContext.Provider>
   );

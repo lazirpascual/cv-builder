@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteOutlined from "@material-ui/icons/DeleteOutlined";
 import UpdateIcon from "@material-ui/icons/Update";
 import { Grid } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const ExperienceList = ({ form, toggleEdit }) => {
   const { deleteForm } = useContext(ExpFormContext);
@@ -15,6 +16,7 @@ const ExperienceList = ({ form, toggleEdit }) => {
   return (
     <Card variant="Media">
       <CardContent>
+        <Typography>Company: {form.company}</Typography>
         <Grid container justify="flex-end">
           <IconButton>
             <UpdateIcon onClick={() => toggleEdit(form.id)} />

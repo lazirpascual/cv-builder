@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { ExpFormContext } from "../../contexts/ExpFormContext";
+import ExperienceList from "./ExperienceList";
 
 // Material-UI import
 import TextField from "@material-ui/core/TextField";
@@ -9,32 +10,39 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteOutlined from "@material-ui/icons/DeleteOutlined";
 import SaveIcon from "@material-ui/icons/Save";
 import { Grid } from "@material-ui/core";
-import ExperienceList from "./ExperienceList";
 
 const ExperienceForm = ({ form }) => {
-  const { deleteForm } = useContext(ExpFormContext);
+  const { saveForm, deleteForm } = useContext(ExpFormContext);
   const [edit, setEdit] = useState(true);
+  const [company, setCompany] = useState("");
+
   const toggleEdit = () => {
     return edit ? setEdit(false) : setEdit(true);
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    saveForm(company, form.id);
+    toggleEdit(form.id);
   };
 
   return edit ? (
     <Card variant="Media">
       <CardContent>
-        <form>
+        <form onSubmit={handleSave}>
           <TextField
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
             label="Company"
             type="text"
             variant="outlined"
             color="secondary"
             required
           ></TextField>
-
           <Grid container justify="flex-end">
             <IconButton>
-              <SaveIcon onClick={() => toggleEdit(form.id)} />
+              <SaveIcon onClick={handleSave} />
             </IconButton>
-
             <IconButton onClick={() => deleteForm(form.id)}>
               <DeleteOutlined />
             </IconButton>
