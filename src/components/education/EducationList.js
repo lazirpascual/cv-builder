@@ -41,7 +41,7 @@ const EducationList = ({ form, toggleEdit }) => {
         <IconButton>
           <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
         </IconButton>
-        <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
+        <IconButton color="primary" onClick={() => deleteForm(form.id)}>
           <DeleteOutlined />
         </IconButton>
       </Grid>

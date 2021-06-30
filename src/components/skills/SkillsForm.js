@@ -21,7 +21,7 @@ const SkillsForm = ({ form }) => {
     <Grid item xs={6} md={4} lg={4}>
       <li className={classes.list}>
         {form.skill}
-        <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
+        <IconButton color="primary" onClick={() => deleteForm(form.id)}>
           <ClearIcon />
         </IconButton>
       </li>

@@ -11,11 +11,8 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   icon: {
-    marginTop: 10,
+    marginTop: 15,
     marginRight: 10,
-  },
-  text: {
-    marginTop: 5,
   },
 });
 
@@ -28,7 +25,7 @@ const SecondaryInfo = () => {
         <LocationOnIcon className={classes.icon} />
         <TextField
           label="Address"
-          variant="outlined"
+          variant="standard"
           color="secondary"
           size="small"
           required
@@ -37,9 +34,8 @@ const SecondaryInfo = () => {
       <Grid item>
         <CallIcon className={classes.icon} />
         <TextField
-          className={classes.text}
           label="Phone Number"
-          variant="outlined"
+          variant="standard"
           size="small"
           color="secondary"
           required
@@ -48,9 +44,8 @@ const SecondaryInfo = () => {
       <Grid item>
         <EmailIcon className={classes.icon} />
         <TextField
-          className={classes.text}
           label="Email"
-          variant="outlined"
+          variant="standard"
           color="secondary"
           size="small"
           required
@@ -59,9 +54,8 @@ const SecondaryInfo = () => {
       <Grid item>
         <LinkedInIcon className={classes.icon} />
         <TextField
-          className={classes.text}
           label="LinkedIn"
-          variant="outlined"
+          variant="standard"
           color="secondary"
           size="small"
         ></TextField>

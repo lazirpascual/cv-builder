@@ -9,7 +9,7 @@ const MainInfo = () => {
     <Grid container direction="column" justify="center">
       <TextField
         label="Full Name"
-        variant="outlined"
+        variant="filled"
         color="secondary"
         size="small"
         multiline
@@ -18,7 +18,7 @@ const MainInfo = () => {
       ></TextField>
       <TextField
         label="Biography"
-        variant="outlined"
+        variant="filled"
         color="secondary"
         multiline
         rows={4}
