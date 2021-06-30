@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     paddingTop: 7,
   },
   date: {
-    paddingLeft: 8,
+    paddingLeft: 5,
   },
 });
 
@@ -38,7 +38,7 @@ const ExperienceList = ({ form, toggleEdit }) => {
       </Grid>
       <Grid container>
         <Typography gutterBottom>{form.startDate}</Typography>
-        <Typography className={classes.date}>—</Typography>
+        <Typography className={classes.date}>-</Typography>
         <Typography className={classes.date} gutterBottom>
           {form.endDate}
         </Typography>

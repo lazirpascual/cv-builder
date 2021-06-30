@@ -5,6 +5,8 @@ import ExperienceSection from "./components/experience/ExperienceSection";
 import ExperienceContextProvider from "./contexts/ExperienceContext";
 import EducationSection from "./components/education/EducationSection";
 import EducationContextProvider from "./contexts/EducationContext";
+import SkillsContextProvider from "./contexts/SkillsContext";
+import SkillsSection from "./components/skills/SkillsSection";
 
 // Material-UI import
 import { Container } from "@material-ui/core";
@@ -20,6 +22,9 @@ const App = () => {
       <EducationContextProvider>
         <EducationSection />
       </EducationContextProvider>
+      <SkillsContextProvider>
+        <SkillsSection />
+      </SkillsContextProvider>
     </Container>
   );
 };
