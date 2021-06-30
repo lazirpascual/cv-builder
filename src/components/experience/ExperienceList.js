@@ -16,7 +16,10 @@ const useStyles = makeStyles({
     paddingLeft: 15,
   },
   company: {
-    paddingTop: 4,
+    paddingTop: 7,
+  },
+  date: {
+    paddingLeft: 8,
   },
 });
 
@@ -28,15 +31,29 @@ const ExperienceList = ({ form, toggleEdit }) => {
     <Card variant="Media">
       <CardContent>
         <Grid container alignItems="center">
-          <Typography className={classes.company} gutterBottom>
+          <Typography className={classes.company} variant="h6" gutterBottom>
             {form.company}
           </Typography>
           <Typography className={classes.position}>—</Typography>
-          <Typography className={classes.position} variant="h6">
+          <Typography
+            className={classes.position}
+            variant="h6"
+            color="secondary"
+          >
             {form.position}
           </Typography>
         </Grid>
-        <Typography variant="caption">{form.description}</Typography>
+        <Grid container alignItems="center">
+          <Typography gutterBottom>{form.startDate}</Typography>
+          <Typography className={classes.date}>—</Typography>
+          <Typography className={classes.date} gutterBottom>
+            {" "}
+            {form.endDate}
+          </Typography>
+        </Grid>
+        <Typography variant="subtitle1" color="textSecondary">
+          {form.description}
+        </Typography>
         <Grid container justify="flex-end">
           <IconButton>
             <UpdateIcon onClick={() => toggleEdit(form.id)} />

@@ -28,7 +28,7 @@ const ExperienceSection = () => {
     <Container>
       <Grid container alignItems="center">
         <WorkIcon className={classes.work}></WorkIcon>
-        <Typography align="left" variant="h6">
+        <Typography align="left" variant="h4">
           Experience
         </Typography>
       </Grid>

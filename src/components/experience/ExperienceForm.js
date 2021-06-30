@@ -10,13 +10,31 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteOutlined from "@material-ui/icons/DeleteOutlined";
 import SaveIcon from "@material-ui/icons/Save";
 import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+
+const useStyles = makeStyles({
+  position: {
+    marginLeft: 15,
+  },
+  company: {
+    marginTop: 15,
+  },
+  date: {
+    marginLeft: 30,
+    marginTop: 15,
+  },
+});
 
 const ExperienceForm = ({ form }) => {
+  const classes = useStyles();
   const { saveForm, deleteForm } = useContext(ExperienceContext);
   const [edit, setEdit] = useState(true);
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const toggleEdit = () => {
     return edit ? setEdit(false) : setEdit(true);
@@ -24,7 +42,7 @@ const ExperienceForm = ({ form }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    saveForm(company, position, description, form.id);
+    saveForm(company, position, description, startDate, endDate, form.id);
     toggleEdit(form.id);
   };
 
@@ -68,6 +86,29 @@ const ExperienceForm = ({ form }) => {
             required
           ></TextField>
         </Grid>
+        <TextField
+          className={classes.company}
+          onChange={(e) => setStartDate(e.target.value)}
+          value={startDate}
+          id="date"
+          label="Start Date: "
+          type="date"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          className={classes.date}
+          onChange={(e) => setEndDate(e.target.value)}
+          value={endDate}
+          id="date"
+          label="End Date: "
+          type="date"
+          defaultValue="2021-06-29"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
         <Grid container justify="flex-end">
           <IconButton>
             <SaveIcon onClick={handleSave} />

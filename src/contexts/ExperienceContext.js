@@ -9,7 +9,14 @@ const ExperienceContextProvider = (props) => {
   const addForm = () => {
     setForm([
       ...forms,
-      { company: "", position: "", description: "", id: uuid() },
+      {
+        company: "",
+        position: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+        id: uuid(),
+      },
     ]);
   };
 
@@ -18,13 +25,22 @@ const ExperienceContextProvider = (props) => {
     setForm(filteredForm);
   };
 
-  const saveForm = (company, position, description, key) => {
+  const saveForm = (
+    company,
+    position,
+    description,
+    startDate,
+    endDate,
+    key
+  ) => {
     const savedForms = forms;
     savedForms.forEach((form) => {
       if (form.id === key) {
         form.company = company;
         form.position = position;
         form.description = description;
+        form.startDate = startDate;
+        form.endDate = endDate;
       }
     });
     setForm(savedForms);
