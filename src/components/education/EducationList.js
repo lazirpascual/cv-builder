@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { EducationContext } from "../../contexts/EducationContext";
+import { BuildContext } from "../../contexts/BuildContext";
 
 // Material-UI import
 import IconButton from "@material-ui/core/IconButton";
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 const EducationList = ({ form, toggleEdit }) => {
   const classes = useStyles();
   const { deleteForm } = useContext(EducationContext);
+  const { build } = useContext(BuildContext);
 
   return (
     <div>
@@ -38,12 +40,16 @@ const EducationList = ({ form, toggleEdit }) => {
         <Typography className={classes.position} variant="h6" color="secondary">
           {form.degree}
         </Typography>
-        <IconButton>
-          <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
-        </IconButton>
-        <IconButton color="primary" onClick={() => deleteForm(form.id)}>
-          <DeleteOutlined />
-        </IconButton>
+        {build ? (
+          <div>
+            <IconButton>
+              <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
+            </IconButton>
+            <IconButton color="primary" onClick={() => deleteForm(form.id)}>
+              <DeleteOutlined />
+            </IconButton>
+          </div>
+        ) : null}
       </Grid>
       <Grid container>
         <Typography gutterBottom>{form.startDate}</Typography>

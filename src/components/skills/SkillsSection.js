@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import SkillsCard from "./SkillsCard";
 import { SkillsContext } from "../../contexts/SkillsContext";
+import { BuildContext } from "../../contexts/BuildContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -37,6 +38,7 @@ const SkillsSection = () => {
   const classes = useStyles();
   const [skill, setSkill] = useState("");
   const { addForm } = useContext(SkillsContext);
+  const { build } = useContext(BuildContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,30 +56,31 @@ const SkillsSection = () => {
       </Grid>
       <Divider variant="fullWidth" />
       <Grid container direction="row" alignItems="center">
-        <form onSubmit={handleSubmit}>
-          <TextField
-            className={classes.items}
-            value={skill}
-            onChange={(e) => setSkill(e.target.value)}
-            label="Skills"
-            type="text"
-            variant="outlined"
-            color="secondary"
-            multiline
-            required
-            margin="dense"
-          ></TextField>
-          <Button
-            className={classes.button}
-            type="submit"
-            color="secondary"
-            variant="contained"
-            startIcon={<AddIcon />}
-          >
-            {" "}
-            Add
-          </Button>
-        </form>
+        {build ? (
+          <form onSubmit={handleSubmit}>
+            <TextField
+              className={classes.items}
+              value={skill}
+              onChange={(e) => setSkill(e.target.value)}
+              label="Skills"
+              type="text"
+              variant="outlined"
+              color="secondary"
+              multiline
+              required
+              margin="dense"
+            ></TextField>
+            <Button
+              className={classes.button}
+              type="submit"
+              color="secondary"
+              variant="contained"
+              startIcon={<AddIcon />}
+            >
+              Add
+            </Button>
+          </form>
+        ) : null}
       </Grid>
       <SkillsCard />
       <Divider

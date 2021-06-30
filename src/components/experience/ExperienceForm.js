@@ -106,7 +106,7 @@ const ExperienceForm = ({ form, toggleEdit }) => {
           <IconButton>
             <SaveIcon onClick={handleSave} />
           </IconButton>
-          <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
+          <IconButton color="primary" onClick={() => deleteForm(form.id)}>
             <DeleteOutlined />
           </IconButton>
         </Grid>

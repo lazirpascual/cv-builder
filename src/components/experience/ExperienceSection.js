@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ExperienceCard from "./ExperienceCard";
 import { ExperienceContext } from "../../contexts/ExperienceContext";
+import { BuildContext } from "../../contexts/BuildContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 const ExperienceSection = () => {
   const classes = useStyles();
   const { addForm } = useContext(ExperienceContext);
+  const { build } = useContext(BuildContext);
 
   return (
     <Container>
@@ -39,16 +41,18 @@ const ExperienceSection = () => {
       </Grid>
       <Divider variant="fullWidth" />
       <ExperienceCard />
-      <Button
-        className={classes.position}
-        type="submit"
-        onClick={() => addForm()}
-        color="secondary"
-        variant="contained"
-        startIcon={<AddIcon />}
-      >
-        Add More
-      </Button>
+      {build ? (
+        <Button
+          className={classes.position}
+          type="submit"
+          onClick={() => addForm()}
+          color="secondary"
+          variant="contained"
+          startIcon={<AddIcon />}
+        >
+          Add More
+        </Button>
+      ) : null}
       <Divider
         style={{ background: "black" }}
         className={classes.divider}

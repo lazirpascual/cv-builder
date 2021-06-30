@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import EducationCard from "./EducationCard";
 import { EducationContext } from "../../contexts/EducationContext";
+import { BuildContext } from "../../contexts/BuildContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 const EducationSection = () => {
   const classes = useStyles();
   const { addForm } = useContext(EducationContext);
+  const { build } = useContext(BuildContext);
 
   return (
     <Container>
@@ -38,16 +40,19 @@ const EducationSection = () => {
       </Grid>
       <Divider variant="fullWidth" />
       <EducationCard />
-      <Button
-        className={classes.position}
-        type="submit"
-        onClick={() => addForm()}
-        color="secondary"
-        variant="contained"
-        startIcon={<AddIcon />}
-      >
-        Add More
-      </Button>
+      {build ? (
+        <Button
+          className={classes.position}
+          type="submit"
+          onClick={() => addForm()}
+          color="secondary"
+          variant="contained"
+          startIcon={<AddIcon />}
+        >
+          Add More
+        </Button>
+      ) : null}
+
       <Divider
         style={{ background: "black" }}
         className={classes.divider}

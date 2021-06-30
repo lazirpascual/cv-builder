@@ -7,6 +7,7 @@ import EducationSection from "./components/education/EducationSection";
 import EducationContextProvider from "./contexts/EducationContext";
 import SkillsContextProvider from "./contexts/SkillsContext";
 import SkillsSection from "./components/skills/SkillsSection";
+import BuildContextProvider from "./contexts/BuildContext";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 // Material-UI import
@@ -27,17 +28,19 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <Header />
-        <PersonalInfo />
-        <ExperienceContextProvider>
-          <ExperienceSection />
-        </ExperienceContextProvider>
-        <EducationContextProvider>
-          <EducationSection />
-        </EducationContextProvider>
-        <SkillsContextProvider>
-          <SkillsSection />
-        </SkillsContextProvider>
+        <BuildContextProvider>
+          <Header />
+          <PersonalInfo />
+          <ExperienceContextProvider>
+            <ExperienceSection />
+          </ExperienceContextProvider>
+          <EducationContextProvider>
+            <EducationSection />
+          </EducationContextProvider>
+          <SkillsContextProvider>
+            <SkillsSection />
+          </SkillsContextProvider>
+        </BuildContextProvider>
       </Container>
     </ThemeProvider>
   );

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ExperienceContext } from "../../contexts/ExperienceContext";
+import { BuildContext } from "../../contexts/BuildContext";
 
 // Material-UI import
 import IconButton from "@material-ui/core/IconButton";
@@ -8,7 +9,6 @@ import EditIcon from "@material-ui/icons/Edit";
 import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles({
   position: {
@@ -28,6 +28,7 @@ const useStyles = makeStyles({
 const ExperienceList = ({ form, toggleEdit }) => {
   const classes = useStyles();
   const { deleteForm } = useContext(ExperienceContext);
+  const { build } = useContext(BuildContext);
 
   return (
     <div>
@@ -39,14 +40,16 @@ const ExperienceList = ({ form, toggleEdit }) => {
         <Typography className={classes.position} variant="h6" color="secondary">
           {form.position}
         </Typography>
-        <Box>
-          <IconButton>
-            <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
-          </IconButton>
-          <IconButton color="primary" onClick={() => deleteForm(form.id)}>
-            <DeleteOutlined />
-          </IconButton>
-        </Box>
+        {build ? (
+          <div>
+            <IconButton>
+              <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
+            </IconButton>
+            <IconButton color="primary" onClick={() => deleteForm(form.id)}>
+              <DeleteOutlined />
+            </IconButton>
+          </div>
+        ) : null}
       </Grid>
       <Grid container>
         <Typography gutterBottom>{form.startDate}</Typography>

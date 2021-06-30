@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BuildContext } from "../contexts/BuildContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -14,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const { toggleBuild } = useContext(BuildContext);
 
   return (
     <div>
