@@ -18,7 +18,7 @@ const SkillsForm = ({ form }) => {
   const { deleteForm } = useContext(SkillsContext);
 
   return (
-    <Grid item xs={6} md={4} lg={3}>
+    <Grid item xs={6} md={4} lg={4}>
       <li className={classes.list}>
         {form.skill}
         <IconButton color="secondary" onClick={() => deleteForm(form.id)}>

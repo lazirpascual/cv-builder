@@ -35,6 +35,12 @@ const EducationList = ({ form, toggleEdit }) => {
         <Typography className={classes.position} variant="h6" color="secondary">
           {form.degree}
         </Typography>
+        <IconButton>
+          <EditIcon onClick={() => toggleEdit()} />
+        </IconButton>
+        <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
+          <DeleteOutlined />
+        </IconButton>
       </Grid>
       <Grid container>
         <Typography gutterBottom>{form.startDate}</Typography>
@@ -42,14 +48,6 @@ const EducationList = ({ form, toggleEdit }) => {
         <Typography className={classes.date} gutterBottom>
           {form.endDate}
         </Typography>
-      </Grid>
-      <Grid container justify="flex-end">
-        <IconButton>
-          <EditIcon onClick={() => toggleEdit()} />
-        </IconButton>
-        <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
-          <DeleteOutlined />
-        </IconButton>
       </Grid>
     </div>
   );
