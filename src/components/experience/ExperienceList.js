@@ -28,42 +28,35 @@ const ExperienceList = ({ form, toggleEdit }) => {
   const { deleteForm } = useContext(ExperienceContext);
 
   return (
-    <Card variant="Media">
-      <CardContent>
-        <Grid container alignItems="center">
-          <Typography className={classes.company} variant="h6" gutterBottom>
-            {form.company}
-          </Typography>
-          <Typography className={classes.position}>—</Typography>
-          <Typography
-            className={classes.position}
-            variant="h6"
-            color="secondary"
-          >
-            {form.position}
-          </Typography>
-        </Grid>
-        <Grid container alignItems="center">
-          <Typography gutterBottom>{form.startDate}</Typography>
-          <Typography className={classes.date}>—</Typography>
-          <Typography className={classes.date} gutterBottom>
-            {" "}
-            {form.endDate}
-          </Typography>
-        </Grid>
-        <Typography variant="subtitle1" color="textSecondary">
-          {form.description}
+    <div>
+      <Grid container alignItems="center">
+        <Typography className={classes.company} variant="h6" gutterBottom>
+          {form.company}
         </Typography>
-        <Grid container justify="flex-end">
-          <IconButton>
-            <UpdateIcon onClick={() => toggleEdit(form.id)} />
-          </IconButton>
-          <IconButton onClick={() => deleteForm(form.id)}>
-            <DeleteOutlined />
-          </IconButton>
-        </Grid>
-      </CardContent>
-    </Card>
+        <Typography className={classes.position}>—</Typography>
+        <Typography className={classes.position} variant="h6" color="secondary">
+          {form.position}
+        </Typography>
+      </Grid>
+      <Grid container alignItems="center">
+        <Typography gutterBottom>{form.startDate}</Typography>
+        <Typography className={classes.date}>—</Typography>
+        <Typography className={classes.date} gutterBottom>
+          {form.endDate}
+        </Typography>
+      </Grid>
+      <Typography variant="subtitle1" color="textSecondary">
+        {form.description}
+      </Typography>
+      <Grid container justify="flex-end">
+        <IconButton>
+          <UpdateIcon onClick={() => toggleEdit()} />
+        </IconButton>
+        <IconButton onClick={() => deleteForm(form.id)}>
+          <DeleteOutlined />
+        </IconButton>
+      </Grid>
+    </div>
   );
 };
 

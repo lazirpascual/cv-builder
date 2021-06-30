@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ExperienceContext } from "../../contexts/ExperienceContext";
-import ExperienceList from "./ExperienceList";
 
 // Material-UI import
 import TextField from "@material-ui/core/TextField";
@@ -25,26 +24,30 @@ const useStyles = makeStyles({
   },
 });
 
-const ExperienceForm = ({ form }) => {
+const ExperienceForm = ({ form, toggleEdit }) => {
   const classes = useStyles();
   const { saveForm, deleteForm } = useContext(ExperienceContext);
-  const [edit, setEdit] = useState(true);
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  const toggleEdit = () => {
-    return edit ? setEdit(false) : setEdit(true);
-  };
+  useEffect(() => {
+    setCompany(form.company);
+    setPosition(form.position);
+    setDescription(form.description);
+    setStartDate(form.startDate);
+    setEndDate(form.endDate);
+  }, []);
 
   const handleSave = (e) => {
+    e.preventDefault();
     saveForm(company, position, description, startDate, endDate, form.id);
     toggleEdit(form.id);
   };
 
-  return edit ? (
+  return (
     <Card variant="Media">
       <CardContent>
         <Grid container direction="column">
@@ -117,8 +120,6 @@ const ExperienceForm = ({ form }) => {
         </Grid>
       </CardContent>
     </Card>
-  ) : (
-    <ExperienceList form={form} toggleEdit={toggleEdit} />
   );
 };
 

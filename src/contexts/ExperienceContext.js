@@ -6,15 +6,18 @@ export const ExperienceContext = createContext();
 const ExperienceContextProvider = (props) => {
   const [forms, setForm] = useState([]);
 
+  useEffect(() => {
+    setForm(JSON.parse(localStorage.getItem("forms")) || []);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("forms", JSON.stringify(forms));
+  }, [forms]);
+
   const addForm = () => {
     setForm([
       ...forms,
       {
-        company: "",
-        position: "",
-        description: "",
-        startDate: "",
-        endDate: "",
         id: uuid(),
       },
     ]);

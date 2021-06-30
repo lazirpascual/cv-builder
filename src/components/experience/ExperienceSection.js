@@ -32,7 +32,7 @@ const ExperienceSection = () => {
     <Container>
       <Divider style={{ background: "black" }} variant="fullWidth" />
       <Grid className={classes.position} container alignItems="center">
-        <WorkIcon className={classes.work}></WorkIcon>
+        <WorkIcon fontSize="large" className={classes.work}></WorkIcon>
         <Typography align="left" variant="h4">
           Experience
         </Typography>

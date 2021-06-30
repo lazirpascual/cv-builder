@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ExperienceContext } from "../../contexts/ExperienceContext";
-import ExperienceForm from "./ExperienceForm";
+import ExperienceToggle from "./ExperienceToggle";
 
 // Material-UI import
 
@@ -10,7 +10,7 @@ const ExperienceCard = () => {
   return (
     <div>
       {forms.map((form) => (
-        <ExperienceForm form={form} key={form.id} />
+        <ExperienceToggle form={form} key={form.id} />
       ))}
     </div>
   );
