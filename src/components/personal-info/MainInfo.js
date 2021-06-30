@@ -11,10 +11,9 @@ const MainInfo = () => {
         label="Full Name"
         variant="outlined"
         color="secondary"
-        size="medium"
+        size="small"
         multiline
         rows={2}
-        margin="dense"
         required
       ></TextField>
       <TextField
@@ -22,7 +21,7 @@ const MainInfo = () => {
         variant="outlined"
         color="secondary"
         multiline
-        rows={5}
+        rows={4}
         margin="dense"
         required
       ></TextField>
