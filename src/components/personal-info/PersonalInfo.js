@@ -11,6 +11,9 @@ const useStyles = makeStyles({
   field: {
     padding: 10,
   },
+  spacing: {
+    marginBottom: 20,
+  },
 });
 
 const PersonalInfo = () => {

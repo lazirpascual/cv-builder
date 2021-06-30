@@ -10,6 +10,7 @@ import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import WorkIcon from "@material-ui/icons/Work";
 import { Grid } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles({
   position: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles({
   },
   work: {
     marginRight: 10,
+  },
+  divider: {
+    marginTop: 20,
   },
 });
 
@@ -26,7 +30,8 @@ const ExperienceSection = () => {
 
   return (
     <Container>
-      <Grid container alignItems="center">
+      <Divider style={{ background: "black" }} variant="fullWidth" />
+      <Grid className={classes.position} container alignItems="center">
         <WorkIcon className={classes.work}></WorkIcon>
         <Typography align="left" variant="h4">
           Experience
@@ -43,6 +48,11 @@ const ExperienceSection = () => {
       >
         Add More
       </Button>
+      <Divider
+        style={{ background: "black" }}
+        className={classes.divider}
+        variant="fullWidth"
+      />
     </Container>
   );
 };

@@ -11,7 +11,6 @@ import DeleteOutlined from "@material-ui/icons/DeleteOutlined";
 import SaveIcon from "@material-ui/icons/Save";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles({
   position: {
@@ -41,7 +40,6 @@ const ExperienceForm = ({ form }) => {
   };
 
   const handleSave = (e) => {
-    e.preventDefault();
     saveForm(company, position, description, startDate, endDate, form.id);
     toggleEdit(form.id);
   };
