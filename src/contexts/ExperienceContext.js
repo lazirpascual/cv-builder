@@ -18,12 +18,13 @@ const ExperienceContextProvider = (props) => {
     setForm(filteredForm);
   };
 
-  const saveForm = (company, position, key) => {
+  const saveForm = (company, position, description, key) => {
     const savedForms = forms;
     savedForms.forEach((form) => {
       if (form.id === key) {
         form.company = company;
         form.position = position;
+        form.description = description;
       }
     });
     setForm(savedForms);

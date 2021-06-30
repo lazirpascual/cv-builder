@@ -16,6 +16,7 @@ const ExperienceForm = ({ form }) => {
   const [edit, setEdit] = useState(true);
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
+  const [description, setDescription] = useState("");
 
   const toggleEdit = () => {
     return edit ? setEdit(false) : setEdit(true);
@@ -23,31 +24,50 @@ const ExperienceForm = ({ form }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    saveForm(company, position, form.id);
+    saveForm(company, position, description, form.id);
     toggleEdit(form.id);
   };
 
   return edit ? (
     <Card variant="Media">
       <CardContent>
-        <TextField
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
-          label="Company"
-          type="text"
-          variant="outlined"
-          color="secondary"
-          required
-        ></TextField>
-        <TextField
-          value={position}
-          onChange={(e) => setPosition(e.target.value)}
-          label="Position"
-          type="text"
-          variant="outlined"
-          color="secondary"
-          required
-        ></TextField>
+        <Grid container direction="column">
+          <TextField
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            label="Company"
+            type="text"
+            variant="outlined"
+            color="secondary"
+            size="small"
+            required
+            margin="dense"
+          ></TextField>
+          <TextField
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+            label="Position"
+            type="text"
+            variant="outlined"
+            color="secondary"
+            size="small"
+            required
+            margin="dense"
+          ></TextField>
+          <TextField
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            label="Description"
+            type="text"
+            variant="outlined"
+            color="secondary"
+            size="small"
+            margin="dense"
+            multiline
+            rows={3}
+            required
+          ></TextField>
+        </Grid>
         <Grid container justify="flex-end">
           <IconButton>
             <SaveIcon onClick={handleSave} />
