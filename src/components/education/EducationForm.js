@@ -27,17 +27,10 @@ const useStyles = makeStyles({
 const EducationForm = ({ form, toggleEdit }) => {
   const classes = useStyles();
   const { saveForm, deleteForm } = useContext(EducationContext);
-  const [school, setSchool] = useState("");
-  const [degree, setDegree] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-
-  useEffect(() => {
-    setSchool(form.school);
-    setDegree(form.degree);
-    setStartDate(form.startDate);
-    setEndDate(form.endDate);
-  }, []);
+  const [school, setSchool] = useState(form.school);
+  const [degree, setDegree] = useState(form.degree);
+  const [startDate, setStartDate] = useState(form.startDate);
+  const [endDate, setEndDate] = useState(form.endDate);
 
   const handleSave = (e) => {
     e.preventDefault();

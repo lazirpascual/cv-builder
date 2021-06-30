@@ -27,19 +27,11 @@ const useStyles = makeStyles({
 const ExperienceForm = ({ form, toggleEdit }) => {
   const classes = useStyles();
   const { saveForm, deleteForm } = useContext(ExperienceContext);
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [description, setDescription] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-
-  useEffect(() => {
-    setCompany(form.company);
-    setPosition(form.position);
-    setDescription(form.description);
-    setStartDate(form.startDate);
-    setEndDate(form.endDate);
-  }, []);
+  const [company, setCompany] = useState(form.company);
+  const [position, setPosition] = useState(form.position);
+  const [description, setDescription] = useState(form.description);
+  const [startDate, setStartDate] = useState(form.startDate);
+  const [endDate, setEndDate] = useState(form.endDate);
 
   const handleSave = (e) => {
     e.preventDefault();

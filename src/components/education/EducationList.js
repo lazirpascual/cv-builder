@@ -19,6 +19,9 @@ const useStyles = makeStyles({
   date: {
     paddingLeft: 5,
   },
+  icon: {
+    marginLeft: 30,
+  },
 });
 
 const EducationList = ({ form, toggleEdit }) => {
@@ -36,7 +39,7 @@ const EducationList = ({ form, toggleEdit }) => {
           {form.degree}
         </Typography>
         <IconButton>
-          <EditIcon onClick={() => toggleEdit()} />
+          <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
         </IconButton>
         <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
           <DeleteOutlined />

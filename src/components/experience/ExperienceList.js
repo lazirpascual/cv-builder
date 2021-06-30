@@ -20,6 +20,9 @@ const useStyles = makeStyles({
   date: {
     paddingLeft: 5,
   },
+  icon: {
+    marginLeft: 30,
+  },
 });
 
 const ExperienceList = ({ form, toggleEdit }) => {
@@ -38,7 +41,7 @@ const ExperienceList = ({ form, toggleEdit }) => {
         </Typography>
         <Box>
           <IconButton>
-            <EditIcon onClick={() => toggleEdit()} />
+            <EditIcon className={classes.icon} onClick={() => toggleEdit()} />
           </IconButton>
           <IconButton color="secondary" onClick={() => deleteForm(form.id)}>
             <DeleteOutlined />
