@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ExperienceContext } from "../../contexts/ExperienceContext";
+import { EducationContext } from "../../contexts/EducationContext";
 
 // Material-UI import
 import TextField from "@material-ui/core/TextField";
@@ -24,26 +24,24 @@ const useStyles = makeStyles({
   },
 });
 
-const ExperienceForm = ({ form, toggleEdit }) => {
+const EducationForm = ({ form, toggleEdit }) => {
   const classes = useStyles();
-  const { saveForm, deleteForm } = useContext(ExperienceContext);
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [description, setDescription] = useState("");
+  const { saveForm, deleteForm } = useContext(EducationContext);
+  const [school, setSchool] = useState("");
+  const [degree, setDegree] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
-    setCompany(form.company);
-    setPosition(form.position);
-    setDescription(form.description);
+    setSchool(form.school);
+    setDegree(form.degree);
     setStartDate(form.startDate);
     setEndDate(form.endDate);
   }, []);
 
   const handleSave = (e) => {
     e.preventDefault();
-    saveForm(company, position, description, startDate, endDate, form.id);
+    saveForm(school, degree, startDate, endDate, form.id);
     toggleEdit(form.id);
   };
 
@@ -52,9 +50,9 @@ const ExperienceForm = ({ form, toggleEdit }) => {
       <CardContent>
         <Grid container direction="column">
           <TextField
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            label="Company"
+            value={school}
+            onChange={(e) => setSchool(e.target.value)}
+            label="School"
             type="text"
             variant="outlined"
             color="secondary"
@@ -63,28 +61,15 @@ const ExperienceForm = ({ form, toggleEdit }) => {
             margin="dense"
           ></TextField>
           <TextField
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
-            label="Position"
+            value={degree}
+            onChange={(e) => setDegree(e.target.value)}
+            label="Degree"
             type="text"
             variant="outlined"
             color="secondary"
             size="small"
             required
             margin="dense"
-          ></TextField>
-          <TextField
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            label="Description"
-            type="text"
-            variant="outlined"
-            color="secondary"
-            size="small"
-            margin="dense"
-            multiline
-            rows={3}
-            required
           ></TextField>
         </Grid>
         <TextField
@@ -123,4 +108,4 @@ const ExperienceForm = ({ form, toggleEdit }) => {
   );
 };
 
-export default ExperienceForm;
+export default EducationForm;

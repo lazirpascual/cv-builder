@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import uuid from "uuid/dist/v1";
 
 export const EducationContext = createContext();
@@ -6,14 +6,18 @@ export const EducationContext = createContext();
 const EducationContextProvider = (props) => {
   const [eduForms, setEduForm] = useState([]);
 
+  useEffect(() => {
+    setEduForm(JSON.parse(localStorage.getItem("eduForms")) || []);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("eduForms", JSON.stringify(eduForms));
+  }, [eduForms]);
+
   const addForm = () => {
     setEduForm([
       ...eduForms,
       {
-        school: "",
-        degree: "",
-        startDate: "",
-        endDate: "",
         id: uuid(),
       },
     ]);

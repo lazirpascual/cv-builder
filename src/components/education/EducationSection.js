@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import ExperienceCard from "./ExperienceCard";
-import { ExperienceContext } from "../../contexts/ExperienceContext";
+import EducationCard from "./EducationCard";
+import { EducationContext } from "../../contexts/EducationContext";
 
 // Material-UI import
 import Typography from "@material-ui/core/Typography";
@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import WorkIcon from "@material-ui/icons/Work";
+import SchoolIcon from "@material-ui/icons/School";
 import { Grid } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 
@@ -24,21 +24,20 @@ const useStyles = makeStyles({
   },
 });
 
-const ExperienceSection = () => {
+const EducationSection = () => {
   const classes = useStyles();
-  const { addForm } = useContext(ExperienceContext);
+  const { addForm } = useContext(EducationContext);
 
   return (
     <Container>
-      <Divider style={{ background: "black" }} variant="fullWidth" />
       <Grid className={classes.position} container alignItems="center">
-        <WorkIcon fontSize="large" className={classes.work}></WorkIcon>
+        <SchoolIcon fontSize="large" className={classes.work}></SchoolIcon>
         <Typography align="left" variant="h4">
-          Experience
+          Education
         </Typography>
       </Grid>
       <Divider variant="fullWidth" />
-      <ExperienceCard />
+      <EducationCard />
       <Button
         className={classes.position}
         type="submit"
@@ -58,4 +57,4 @@ const ExperienceSection = () => {
   );
 };
 
-export default ExperienceSection;
+export default EducationSection;

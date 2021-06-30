@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ExperienceContext } from "../../contexts/ExperienceContext";
+import { EducationContext } from "../../contexts/EducationContext";
 
 // Material-UI import
 import IconButton from "@material-ui/core/IconButton";
@@ -21,19 +21,19 @@ const useStyles = makeStyles({
   },
 });
 
-const ExperienceList = ({ form, toggleEdit }) => {
+const EducationList = ({ form, toggleEdit }) => {
   const classes = useStyles();
-  const { deleteForm } = useContext(ExperienceContext);
+  const { deleteForm } = useContext(EducationContext);
 
   return (
     <div>
       <Grid container alignItems="center">
         <Typography className={classes.company} variant="h6" gutterBottom>
-          {form.company}
+          {form.school}
         </Typography>
         <Typography className={classes.position}>—</Typography>
         <Typography className={classes.position} variant="h6" color="secondary">
-          {form.position}
+          {form.degree}
         </Typography>
       </Grid>
       <Grid container>
@@ -43,9 +43,6 @@ const ExperienceList = ({ form, toggleEdit }) => {
           {form.endDate}
         </Typography>
       </Grid>
-      <Typography variant="subtitle1" color="textSecondary">
-        {form.description}
-      </Typography>
       <Grid container justify="flex-end">
         <IconButton>
           <EditIcon onClick={() => toggleEdit()} />
@@ -58,4 +55,4 @@ const ExperienceList = ({ form, toggleEdit }) => {
   );
 };
 
-export default ExperienceList;
+export default EducationList;
