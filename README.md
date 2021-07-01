@@ -1,12 +1,11 @@
 # CV-Builder
 
-This is an application that lets you build your own, personal CV. This app was made using React JS, styled with Material-UI.
+This is an application that lets you build your own, personal CV. This app was made using Javascript, React JS, React-PDF (kendo-react) library and Material-UI.
 
-**Live preview:** [here](https://lazirpascual.github.io/react-cv-builder/)
+## Tech Stack
 
-## Built with
-
-### Technologies
+| <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/javascript.svg" width="40"> | <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/react.svg" width="40"> | <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/material-ui.svg" width="40"> |
+| :--------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
 
 - React JS
   - Hooks
@@ -14,11 +13,17 @@ This is an application that lets you build your own, personal CV. This app was m
   - Reducers
 - Material-UI
 
-### Tools
+# Live Demo
 
-- Visual Studio Code
-- Linux terminal
-- Git and GitHub
+[here](https://lazirpascual.github.io/react-cv-builder/)
+
+### App Preview
+
+![preview](https://i.imgur.com/V3UUlDb.png)
+
+### Rendered PDF Preview
+
+![preview](https://i.imgur.com/JQy2iHl.png)
 
 ### What I Learned
 

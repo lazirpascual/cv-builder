@@ -35,7 +35,7 @@ const ExperienceSection = () => {
       <Divider style={{ background: "black" }} variant="fullWidth" />
       <Grid className={classes.position} container alignItems="center">
         <WorkIcon fontSize="large" className={classes.work}></WorkIcon>
-        <Typography align="left" variant="h4">
+        <Typography align="left" variant="h5">
           Work Experience
         </Typography>
       </Grid>

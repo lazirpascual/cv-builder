@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     marginLeft: 15,
   },
   company: {
-    marginTop: 15,
+    marginTop: 20,
   },
   date: {
     marginLeft: 30,
@@ -40,7 +40,7 @@ const ExperienceForm = ({ form, toggleEdit }) => {
   };
 
   return (
-    <Card variant="Media">
+    <Card className={classes.company} variant="Media">
       <CardContent>
         <Grid container direction="column">
           <TextField

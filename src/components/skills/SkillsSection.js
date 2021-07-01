@@ -50,7 +50,7 @@ const SkillsSection = () => {
     <Container>
       <Grid className={classes.position} container alignItems="center">
         <BuildIcon fontSize="large" className={classes.work}></BuildIcon>
-        <Typography align="left" variant="h4">
+        <Typography align="left" variant="h5">
           Skills
         </Typography>
       </Grid>

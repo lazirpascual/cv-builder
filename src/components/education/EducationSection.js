@@ -34,7 +34,7 @@ const EducationSection = () => {
     <Container>
       <Grid className={classes.position} container alignItems="center">
         <SchoolIcon fontSize="large" className={classes.work}></SchoolIcon>
-        <Typography align="left" variant="h4">
+        <Typography align="left" variant="h5">
           Education
         </Typography>
       </Grid>

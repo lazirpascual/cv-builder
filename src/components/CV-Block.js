@@ -9,6 +9,7 @@ import EducationContextProvider from "../contexts/EducationContext";
 import SkillsContextProvider from "../contexts/SkillsContext";
 import SkillsSection from "./skills/SkillsSection";
 import BuildContextProvider from "../contexts/BuildContext";
+import TemplateContextProvider from "../contexts/TemplateContext";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { useRef } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
@@ -36,23 +37,25 @@ const CVBlock = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <BuildContextProvider>
-          <Header handleExport={handleExport} />
-          <PDFExport scale={0.6} ref={pdfExportComponent} paperSize="A4">
-            <PersonalInfoContextProvider>
-              <PersonalInfo />
-            </PersonalInfoContextProvider>
-            <ExperienceContextProvider>
-              <ExperienceSection />
-            </ExperienceContextProvider>
-            <EducationContextProvider>
-              <EducationSection />
-            </EducationContextProvider>
-            <SkillsContextProvider>
-              <SkillsSection />
-            </SkillsContextProvider>
-          </PDFExport>
-        </BuildContextProvider>
+        <TemplateContextProvider>
+          <BuildContextProvider>
+            <Header handleExport={handleExport} />
+            <PDFExport scale={0.6} ref={pdfExportComponent} paperSize="A4">
+              <PersonalInfoContextProvider>
+                <PersonalInfo />
+              </PersonalInfoContextProvider>
+              <ExperienceContextProvider>
+                <ExperienceSection />
+              </ExperienceContextProvider>
+              <EducationContextProvider>
+                <EducationSection />
+              </EducationContextProvider>
+              <SkillsContextProvider>
+                <SkillsSection />
+              </SkillsContextProvider>
+            </PDFExport>
+          </BuildContextProvider>
+        </TemplateContextProvider>
       </Container>
     </ThemeProvider>
   );

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { PersonalInfoContext } from "../../contexts/PersonalInfoContext";
+import { TemplateContext } from "../../contexts/TemplateContext";
 
 // Material-UI import
 import { Grid } from "@material-ui/core";

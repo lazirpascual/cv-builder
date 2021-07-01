@@ -1,18 +1,35 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import uuid from "uuid/dist/v1";
+import { TemplateContext } from "./TemplateContext";
 
 export const EducationContext = createContext();
 
 const EducationContextProvider = (props) => {
   const [eduForms, setEduForm] = useState([]);
+  const { template } = useContext(TemplateContext);
 
   useEffect(() => {
-    setEduForm(JSON.parse(localStorage.getItem("eduForms")) || []);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("eduForms", JSON.stringify(eduForms));
-  }, [eduForms]);
+    if (template) {
+      setEduForm([
+        {
+          school: "Conestoga College",
+          degree: "Sofware Engineering Technology",
+          startDate: "2020-09-07",
+          endDate: "2022-05-30",
+          id: uuid(),
+        },
+        {
+          school: "Waterloo Collegiate Institute",
+          degree: "Highscool Diploma",
+          startDate: "2014-09-07",
+          endDate: "2017-06-02",
+          id: uuid(),
+        },
+      ]);
+    } else {
+      setEduForm([]);
+    }
+  }, [template]);
 
   const addForm = () => {
     setEduForm([

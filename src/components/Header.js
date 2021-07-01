@@ -9,19 +9,21 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import { BuildContext } from "../contexts/BuildContext";
 import { Button } from "@material-ui/core";
+import { TemplateContext } from "../contexts/TemplateContext";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
   export: {
-    marginRight: 20,
+    marginRight: 25,
   },
 }));
 
 const Header = ({ handleExport }) => {
   const classes = useStyles();
   const { build, toggleBuild } = useContext(BuildContext);
+  const { toggleTemplate } = useContext(TemplateContext);
 
   return (
     <div>
@@ -32,7 +34,7 @@ const Header = ({ handleExport }) => {
           </Typography>
           {!build ? (
             <Button
-              variant="outlined"
+              variant="contained"
               className={classes.export}
               color="primary"
               onClick={handleExport}
@@ -40,6 +42,14 @@ const Header = ({ handleExport }) => {
               Download PDF
             </Button>
           ) : null}
+          <Button
+            onClick={toggleTemplate}
+            variant="outlined"
+            className={classes.export}
+            color="primary"
+          >
+            Template CV
+          </Button>
           <FormControlLabel
             className={classes.switch}
             onChange={toggleBuild}
