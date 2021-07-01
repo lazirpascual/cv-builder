@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     margin: 20,
   },
+  text: {
+    marginLeft: 15,
+  },
 }));
 
 const PersonalInfoList = () => {
@@ -50,19 +53,23 @@ const PersonalInfoList = () => {
       <Grid item xs={6} md={6} lg={6} className={classes.field}>
         <Grid container className={classes.icon}>
           <LocationOnIcon className={classes.spacing} />
-          <Typography>{personalInfo.address}</Typography>
+          <Typography className={classes.text}>
+            {personalInfo.address}
+          </Typography>
         </Grid>
         <Grid container className={classes.icon}>
           <CallIcon className={classes.spacing} />
-          <Typography>{personalInfo.phone}</Typography>
+          <Typography className={classes.text}>{personalInfo.phone}</Typography>
         </Grid>
         <Grid container className={classes.icon}>
           <EmailIcon className={classes.spacing} />
-          <Typography>{personalInfo.email}</Typography>
+          <Typography className={classes.text}>{personalInfo.email}</Typography>
         </Grid>
         <Grid container className={classes.icon}>
           <LinkedInIcon className={classes.spacing} />
-          <Typography>{personalInfo.linkedIn}</Typography>
+          <Typography className={classes.text}>
+            {personalInfo.linkedIn}
+          </Typography>
         </Grid>
       </Grid>
     </Grid>
