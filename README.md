@@ -1,6 +1,10 @@
 # CV-Builder
 
-This is an application that lets you build your own, personal CV. This app was made using Javascript, React JS, React-PDF (kendo-react) library and Material-UI.
+This is an application that lets you build your own, personal CV, with the option to render it as a PDF. It was made using Javascript, React JS, React-PDF library and Material-UI.
+
+# Live Demo
+
+[Live Demo of Application](https://lazirpascual.github.io/react-cv-builder/)
 
 ## Tech Stack
 
@@ -12,10 +16,6 @@ This is an application that lets you build your own, personal CV. This app was m
   - Context
   - Reducers
 - Material-UI
-
-# Live Demo
-
-[Live Demo of Application](https://lazirpascual.github.io/react-cv-builder/)
 
 ### App Preview
 
