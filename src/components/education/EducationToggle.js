@@ -8,7 +8,7 @@ const EducationToggle = ({ form }) => {
   const { build } = useContext(BuildContext);
 
   useEffect(() => {
-    return build ? setEdit(true) : setEdit(false);
+    return !build ? setEdit(false) : null;
   }, [build]);
 
   const toggleEdit = () => {
