@@ -4,10 +4,12 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { Grid } from "@material-ui/core";
 
-const MainInfo = () => {
+const MainInfo = ({ name, biography, setName, setBiography }) => {
   return (
     <Grid container direction="column" justify="center">
       <TextField
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         label="Full Name"
         variant="filled"
         color="secondary"
@@ -17,6 +19,8 @@ const MainInfo = () => {
         required
       ></TextField>
       <TextField
+        value={biography}
+        onChange={(e) => setBiography(e.target.value)}
         label="Biography"
         variant="filled"
         color="secondary"

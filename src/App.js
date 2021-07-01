@@ -1,6 +1,7 @@
 import React from "react";
-import PersonalInfo from "./components/personal-info/PersonalInfo";
 import Header from "./components/Header";
+import PersonalInfo from "./components/personal-info/PersonalInfo";
+import PersonalInfoContextProvider from "./contexts/PersonalInfoContext";
 import ExperienceSection from "./components/experience/ExperienceSection";
 import ExperienceContextProvider from "./contexts/ExperienceContext";
 import EducationSection from "./components/education/EducationSection";
@@ -30,7 +31,9 @@ const App = () => {
       <Container>
         <BuildContextProvider>
           <Header />
-          <PersonalInfo />
+          <PersonalInfoContextProvider>
+            <PersonalInfo />
+          </PersonalInfoContextProvider>
           <ExperienceContextProvider>
             <ExperienceSection />
           </ExperienceContextProvider>

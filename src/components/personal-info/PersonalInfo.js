@@ -1,14 +1,14 @@
 import { Grid, Avatar } from "@material-ui/core";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import MainInfo from "./MainInfo";
 import SecondaryInfo from "./SecondaryInfo";
 import { BuildContext } from "../../contexts/BuildContext";
+import { PersonalInfoContext } from "../../contexts/PersonalInfoContext";
 
 // Material-UI import
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
+import PersonalInfoList from "./PersonalInfoList";
 
 const useStyles = makeStyles((theme) => ({
   field: {
@@ -18,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
   },
   large: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: theme.spacing(17),
+    height: theme.spacing(17),
+    marginTop: 20,
+    marginRight: 10,
   },
   switch: {
     marginTop: 20,
@@ -29,30 +31,49 @@ const useStyles = makeStyles((theme) => ({
 
 const PersonalInfo = () => {
   const classes = useStyles();
-  const { toggleBuild } = useContext(BuildContext);
+  const { build } = useContext(BuildContext);
+  const { saveInput, personalInfo } = useContext(PersonalInfoContext);
+  const [name, setName] = useState(personalInfo.name);
+  const [biography, setBiography] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
 
-  return (
+  useEffect(() => {
+    saveInput(name, biography, address, phone, email, linkedIn);
+  }, [build]);
+
+  return build ? (
     <Container>
       <Grid container direction="row">
         <Grid item xs="auto" md="auto" lg="auto" className={classes.field}>
           <Avatar className={classes.large}>User</Avatar>
         </Grid>
-        <Grid item xs={4} md={6} lg={6} className={classes.field}>
-          <MainInfo />
+        <Grid item xs={4} md={4} lg={6} className={classes.field}>
+          <MainInfo
+            name={name}
+            biography={biography}
+            setName={setName}
+            setBiography={setBiography}
+          />
         </Grid>
         <Grid item xs="auto" md="auto" lg="auto" className={classes.field}>
-          <SecondaryInfo />
-        </Grid>
-        <Grid item xs="auto" md="auto" lg="auto">
-          <FormControlLabel
-            className={classes.switch}
-            onChange={toggleBuild}
-            control={<Switch />}
-            label="Preview"
+          <SecondaryInfo
+            address={address}
+            phone={phone}
+            email={email}
+            linkedIn={linkedIn}
+            setPhone={setPhone}
+            setAddress={setAddress}
+            setEmail={setEmail}
+            setLinkedIn={setLinkedIn}
           />
         </Grid>
       </Grid>
     </Container>
+  ) : (
+    <PersonalInfoList />
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ExperienceContext } from "../../contexts/ExperienceContext";
 
 // Material-UI import
