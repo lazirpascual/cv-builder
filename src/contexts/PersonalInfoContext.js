@@ -15,12 +15,12 @@ const PersonalInfoContextProvider = (props) => {
 
   const saveInput = (name, biography, address, phone, email, linkedIn) => {
     setPersonalInfo({
-      name: name,
-      biography: biography,
-      address: address,
-      phone: phone,
-      email: email,
-      linkedIn: linkedIn,
+      name,
+      biography,
+      address,
+      phone,
+      email,
+      linkedIn,
     });
   };
 

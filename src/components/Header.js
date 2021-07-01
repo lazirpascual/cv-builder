@@ -8,24 +8,38 @@ import { makeStyles } from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import { BuildContext } from "../contexts/BuildContext";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  export: {
+    marginRight: 20,
+  },
 }));
 
-const Header = () => {
+const Header = ({ handleExport }) => {
   const classes = useStyles();
-  const { toggleBuild } = useContext(BuildContext);
+  const { build, toggleBuild } = useContext(BuildContext);
 
   return (
     <div>
       <AppBar color="secondary" position="static">
         <Toolbar>
-          <Typography align="center" variant="h5" className={classes.title}>
+          <Typography align="left" variant="h5" className={classes.title}>
             Create Your Personal CV
           </Typography>
+          {!build ? (
+            <Button
+              variant="outlined"
+              className={classes.export}
+              color="primary"
+              onClick={handleExport}
+            >
+              Download PDF
+            </Button>
+          ) : null}
           <FormControlLabel
             className={classes.switch}
             onChange={toggleBuild}

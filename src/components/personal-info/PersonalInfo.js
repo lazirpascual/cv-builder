@@ -34,11 +34,11 @@ const PersonalInfo = () => {
   const { build } = useContext(BuildContext);
   const { saveInput, personalInfo } = useContext(PersonalInfoContext);
   const [name, setName] = useState(personalInfo.name);
-  const [biography, setBiography] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [linkedIn, setLinkedIn] = useState("");
+  const [biography, setBiography] = useState(personalInfo.biography);
+  const [address, setAddress] = useState(personalInfo.address);
+  const [phone, setPhone] = useState(personalInfo.phone);
+  const [email, setEmail] = useState(personalInfo.email);
+  const [linkedIn, setLinkedIn] = useState(personalInfo.linkedIn);
 
   useEffect(() => {
     return !build
