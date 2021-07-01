@@ -19,11 +19,11 @@ This is an application that lets you build your own, personal CV. This app was m
 
 ### App Preview
 
-![preview](https://i.imgur.com/V3UUlDb.png)
+![preview](https://i.imgur.com/kPROQlT.jpg)
 
 ### Rendered PDF Preview
 
-![preview](https://i.imgur.com/JQy2iHl.png)
+![preview](https://i.imgur.com/LfDZKfD.jpg)
 
 ### What I Learned
 
