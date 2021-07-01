@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 // Material-UI import
 import TextField from "@material-ui/core/TextField";
@@ -8,7 +8,6 @@ import CallIcon from "@material-ui/icons/Call";
 import EmailIcon from "@material-ui/icons/Email";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { makeStyles } from "@material-ui/core";
-import { PersonalInfoContext } from "../../contexts/PersonalInfoContext";
 
 const useStyles = makeStyles({
   icon: {
@@ -28,7 +27,6 @@ const SecondaryInfo = ({
   setLinkedIn,
 }) => {
   const classes = useStyles();
-  const { personalInfo } = useContext(PersonalInfoContext);
 
   return (
     <Grid container direction="column">

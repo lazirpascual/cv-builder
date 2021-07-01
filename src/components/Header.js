@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
-  const { build, toggleBuild } = useContext(BuildContext);
+  const { toggleBuild } = useContext(BuildContext);
 
   return (
     <div>
@@ -29,7 +29,7 @@ const Header = () => {
           <FormControlLabel
             className={classes.switch}
             onChange={toggleBuild}
-            control={<Switch />}
+            control={<Switch color="primary" />}
             label="Preview"
           />
         </Toolbar>

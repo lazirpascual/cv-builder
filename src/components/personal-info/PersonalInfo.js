@@ -4,11 +4,11 @@ import MainInfo from "./MainInfo";
 import SecondaryInfo from "./SecondaryInfo";
 import { BuildContext } from "../../contexts/BuildContext";
 import { PersonalInfoContext } from "../../contexts/PersonalInfoContext";
+import PersonalInfoList from "./PersonalInfoList";
 
 // Material-UI import
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import PersonalInfoList from "./PersonalInfoList";
 
 const useStyles = makeStyles((theme) => ({
   field: {
@@ -41,7 +41,9 @@ const PersonalInfo = () => {
   const [linkedIn, setLinkedIn] = useState("");
 
   useEffect(() => {
-    saveInput(name, biography, address, phone, email, linkedIn);
+    return !build
+      ? saveInput(name, biography, address, phone, email, linkedIn)
+      : null;
   }, [build]);
 
   return build ? (
