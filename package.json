@@ -1,6 +1,6 @@
 {
-  "name": "react-cv-builder",
-  "homepage": "http://lazirpascual.github.io/react-cv-builder",
+  "name": "cv-builder",
+  "homepage": "http://lazirpascual.github.io/cv-builder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

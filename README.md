@@ -4,7 +4,7 @@ This is an application that lets you build your own, personal CV, with the optio
 
 # Live Demo
 
-[Live Demo of Application](https://lazirpascual.github.io/react-cv-builder/)
+[Live Demo of Application](https://lazirpascual.github.io/cv-builder/)
 
 ## Tech Stack
 
